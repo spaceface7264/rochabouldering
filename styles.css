@@ -14,13 +14,113 @@ body {
 }
 
 .container {
-    flex: 1;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 2rem;
     gap: 4rem;
+}
+
+.products-story {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+.story-section {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.story-section h3 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.story-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+}
+
+.story-section .vision {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+}
+
+.products-section {
+    width: 100%;
+}
+
+.products-section h3 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.product-card {
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.product-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.product-card h4 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.product-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .footer {
@@ -239,6 +339,8 @@ h2 {
     
     .container {
         gap: 3rem;
+        min-height: auto;
+        padding: 3rem 1.5rem;
     }
     
     h2 {
@@ -256,6 +358,26 @@ h2 {
     
     .cta-button {
         width: 100%;
+    }
+    
+    .products-story {
+        padding: 4rem 1.5rem;
+        gap: 4rem;
+    }
+    
+    .story-section h3,
+    .products-section h3 {
+        font-size: 1.25rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0;
+    }
+    
+    .product-card {
+        padding: 1.5rem;
     }
 }
 
@@ -300,6 +422,15 @@ h2 {
     
     .modal-content h3 {
         font-size: 1.25rem;
+    }
+    
+    .products-story {
+        padding: 3rem 1rem;
+        gap: 3rem;
+    }
+    
+    .story-section p {
+        font-size: 1rem;
     }
 }
 
