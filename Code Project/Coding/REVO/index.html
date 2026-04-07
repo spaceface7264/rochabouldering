@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Klar — Garageoprydning i Aarhus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.390.0/dist/umd/lucide.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0f0f0f;
+      --gray1:   #1c1c1c;
+      --gray2:   #3d3d3d;
+      --gray3:   #767676;
+      --gray4:   #b0b0b0;
+      --gray5:   #e8e8e8;
+      --gray6:   #f4f4f4;
+      --white:   #ffffff;
+      --accent:  #e8500a;
+      --accent2: #ff6b2b;
+      --radius:  6px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1.5px solid var(--gray5);
+      padding: 0 5%;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 1.6rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--black);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--gray2);
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white);
+      font-size: 0.875rem;
+      font-weight: 700;
+      padding: 0.55rem 1.25rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--accent2); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 100px 5% 90px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #fff4ef;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.75rem;
+      border-radius: 100px;
+      margin-bottom: 1.4rem;
+      border: 1.5px solid #fdd5c0;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 1.2rem;
+      color: var(--black);
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--gray2);
+      max-width: 480px;
+      margin-bottom: 2rem;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--black);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: var(--radius);
+      border: 2px solid var(--gray5);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--black); background: var(--gray6); }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1.5px solid var(--gray5);
+    }
+
+    .stat-num {
+      font-size: 1.8rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--black);
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gray3);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* Hero visual */
+    .hero-visual { position: relative; }
+
+    .hero-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1.5px solid var(--gray5);
+      display: block;
+    }
+
+    .hero-badge-float {
+      position: absolute;
+      bottom: -18px;
+      left: -18px;
+      background: var(--white);
+      border: 1.5px solid var(--gray5);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+    }
+
+    .float-icon {
+      background: #fff4ef;
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .float-text strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--black);
+    }
+
+    .float-text span {
+      font-size: 0.75rem;
+      color: var(--gray3);
+      font-weight: 500;
+    }
+
+    .hero-badge-float2 {
+      position: absolute;
+      top: -18px;
+      right: -18px;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      box-shadow: 0 8px 24px rgba(232,80,10,0.3);
+      text-align: center;
+    }
+    .hero-badge-float2 strong {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+    .hero-badge-float2 span {
+      font-size: 0.72rem;
+      font-weight: 600;
+      opacity: 0.85;
+    }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--black);
+      padding: 1.1rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .trust-item i { color: var(--accent2); width: 16px; height: 16px; }
+
+    /* ── SECTION ── */
+    section { padding: 80px 5%; }
+
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--gray2);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--gray6); }
+
+    .services-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray5);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .service-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 32px rgba(232,80,10,0.1);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: #fff4ef;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      font-size: 0.875rem;
+      color: var(--gray2);
+      line-height: 1.65;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 12.5%;
+      right: 12.5%;
+      height: 2px;
+      background: var(--gray5);
+      z-index: 0;
+    }
+
+    .step { position: relative; z-index: 1; text-align: center; }
+
+    .step-num {
+      width: 56px;
+      height: 56px;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 900;
+      margin: 0 auto 1.2rem;
+      border: 4px solid var(--white);
+      box-shadow: 0 0 0 2px var(--gray5);
+    }
+
+    .step-num.accent {
+      background: var(--accent);
+      box-shadow: 0 0 0 2px #fdd5c0;
+    }
+
+    .step h3 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
+    }
+
+    .step p { font-size: 0.82rem; color: var(--gray3); line-height: 1.6; }
+
+    /* ── WHY ── */
+    #why { background: var(--black); color: var(--white); }
+    #why .section-title { color: var(--white); }
+    #why .section-sub { color: var(--gray4); }
+    #why .section-label { color: var(--accent2); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .why-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .why-item { display: flex; gap: 1rem; align-items: flex-start; }
+
+    .why-item-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent2);
+      flex-shrink: 0;
+    }
+
+    .why-item-text h4 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.02em;
+    }
+    .why-item-text p { font-size: 0.83rem; color: var(--gray4); line-height: 1.65; }
+
+    .why-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .why-stat-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .why-stat-box.accent-box {
+      background: var(--accent);
+      border-color: var(--accent);
+      grid-column: span 2;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .why-stat-box .num {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--white);
+    }
+
+    .why-stat-box .lbl {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .why-stat-box.accent-box .num { font-size: 2.4rem; }
+    .why-stat-box.accent-box .lbl { color: rgba(255,255,255,0.8); }
+
+    /* ── GALLERY ── */
+    #galleri { background: var(--white); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.04); }
+
+    .gallery-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.75rem 1rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.6));
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── TESTIMONIALS ── */
+    #udtalelser { background: var(--gray6); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .testi-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray5);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+
+    .testi-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 1rem;
+      color: #f5a623;
+    }
+
+    .testi-card blockquote {
+      font-size: 0.9rem;
+      color: var(--gray1);
+      line-height: 1.7;
+      font-style: normal;
+      margin-bottom: 1.25rem;
+    }
+
+    .testi-author { display: flex; align-items: center; gap: 0.75rem; }
+
+    .testi-avatar {
+      width: 36px;
+      height: 36px;
+      background: var(--gray5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--gray3);
+    }
+
+    .testi-author strong {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--black);
+    }
+    .testi-author span { font-size: 0.75rem; color: var(--gray3); font-weight: 500; }
+
+    /* ── CTA BANNER ── */
+    .cta-banner { background: var(--accent); padding: 80px 5%; }
+
+    .cta-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-banner h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .cta-banner p { color: rgba(255,255,255,0.8); font-size: 1rem; margin-top: 0.5rem; }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      white-space: nowrap;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+    /* ── CONTACT ── */
+    #kontakt { background: var(--white); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .contact-row { display: flex; align-items: flex-start; gap: 1rem; }
+
+    .contact-row-icon {
+      width: 44px;
+      height: 44px;
+      background: #fff4ef;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .contact-row h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--gray3);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-row p { font-size: 0.95rem; font-weight: 600; color: var(--black); }
+
+    .form-group { margin-bottom: 1.25rem; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gray2);
+      margin-bottom: 0.45rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--gray5);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--black);
+      background: var(--white);
+      transition: border-color 0.15s;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--accent);
+      color: var(--white);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.85rem;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: background 0.15s;
+    }
+    .form-submit:hover { background: var(--accent2); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 48px 5% 24px;
+    }
+
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-wrap: wrap;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: var(--gray4);
+      max-width: 260px;
+      line-height: 1.65;
+      margin-top: 0.75rem;
+    }
+
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--white);
+    }
+    .footer-logo span { color: var(--accent2); }
+
+    .footer-col h5 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray4);
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+
+    .footer-col a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p { font-size: 0.8rem; color: var(--gray4); }
+
+    .footer-socials { display: flex; gap: 0.75rem; }
+
+    .social-btn {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.15s, border-color 0.15s;
+      text-decoration: none;
+    }
+    .social-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 2.5rem; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid::before { display: none; }
+      .why-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .trust-bar { gap: 1.25rem; }
+      .hero-stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><span>K</span>lar <span>G</span>arage</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Ydelser</a></li>
+    <li><a href="#how">Sådan virker det</a></li>
+    <li><a href="#why">Om os</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+  <a class="nav-cta" href="#kontakt">Få et gratis tilbud</a>
+</nav>
+
+<!-- HERO -->
+<section style="padding:0; background:var(--white);">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i data-lucide="award" style="width:13px;height:13px;"></i>
+        Aarhus' Foretrukne Garageoprydningsservice
+      </div>
+      <h1>Din garage,<br /><em>ryddet op.</em><br />Endelig.</h1>
+      <p>Klar gør garageoprydning simpelt, hurtigt og stressfrit. Vi henter det, sorterer det og donerer det — så du ikke behøver.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#kontakt">
+          <i data-lucide="calendar" style="width:16px;height:16px;"></i>
+          Book en oprydning
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img
+        class="hero-img"
+        src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1600&q=80"
+        alt="Rodet garage klar til oprydning"
+      />
+      <div class="hero-badge-float">
+        <div class="float-icon">
+          <i data-lucide="check-circle" style="width:20px;height:20px;"></i>
+        </div>
+        <div class="float-text">
+          <strong>Fra kaos til system</strong>
+          <span>Oprydning, rengoring og organisering</span>
+        </div>
+      </div>
+      <div class="hero-badge-float2">
+        <strong>Gratis</strong>
+        <span>Besigtigelse</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><i data-lucide="sparkles"></i> Oprydning med system</div>
+  <div class="trust-item"><i data-lucide="layout-grid"></i> Smart zoner & organisering</div>
+  <div class="trust-item"><i data-lucide="clock"></i> Hurtig opstart</div>
+  <div class="trust-item"><i data-lucide="leaf"></i> Genbrug, donation & ansvarlig bortskaffelse</div>
+  <div class="trust-item"><i data-lucide="badge-check"></i> Fast pris. Ingen overraskelser.</div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div>
+        <div class="section-label">Vores services</div>
+        <h2 class="section-title">Komplet service<br />til din Garage</h2>
+      </div>
+      <p class="section-sub">Fra enkeltgenstande til fulde boligrydninger — vi håndterer jobs af alle størrelser. Hurtigt og grundigt.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i data-lucide="trash-2" style="width:22px;height:22px;"></i></div>
+        <h3>Fuld Garageoprydning</h3>
+        <p>Vi fjerner det hele — gammelt møbel, kasser, værktøj, skrammel — og efterlader din garage skinnende ren.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i data-lucide="package" style="width:22px;height:22px;"></i></div>
+        <h3>Skrald- og Affaldshåndtering</h3>
+        <p>Tunge genstande, hvidevarer, skrot — ingen opgave er for stor. Vi læsser, kører og ordner det.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i data-lucide="layers" style="width:22px;height:22px;"></i></div>
+        <h3>Sortering og Organisering</h3>
+        <p>Behold, doner, genbrug eller smid ud — vi sorterer alt, så du slipper for at træffe 1000 beslutninger.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i data-lucide="home" style="width:22px;height:22px;"></i></div>
+        <h3>Boligrydning & Dødsbo</h3>
+        <p>Skånsom og respektfuld service ved fraflytning, arv og nedtrappede boliger. Vi behandler alting med omhu.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i data-lucide="recycle" style="width:22px;height:22px;"></i></div>
+        <h3>Miljøvenlig Bortskaffelse</h3>
+        <p>Vi afleverer til genbrugsstationer, lokale genbrugsbutikker og sikrer ansvarlig håndtering af affald.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i data-lucide="calendar-check" style="width:22px;height:22px;"></i></div>
+        <h3>Samme Dag & Akut</h3>
+        <p>Skal det gøres i dag? Vi tilbyder samme-dags booking til tidskritiske oprydningsjobs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-inner">
+    <div style="text-align:center; margin-bottom:0.5rem;">
+      <div class="section-label">Processen</div>
+      <h2 class="section-title">Klaret i 4 simple trin</h2>
+      <p class="section-sub" style="margin:0.5rem auto 0; text-align:center;">Ingen gætterier, ingen overraskelser. Sådan ser det ud, når du booker med Klar.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Book online</h3>
+        <p>Udfyld vores hurtige formular eller ring. Det tager under 2 minutter.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Gratis besigtigelse</h3>
+        <p>Vi kigger forbi, vurderer jobbet og giver dig en fast pris. Ingen skjulte gebyrer.</p>
+      </div>
+      <div class="step">
+        <div class="step-num accent">3</div>
+        <h3>Vi tager os af det</h3>
+        <p>Vores hold henter, sorterer og fejer — du behøver ikke løfte en finger.</p>
+      </div>
+      <div class="step">
+        <div class="step-num accent">4</div>
+        <h3>Nyd din garage</h3>
+        <p>Gå ind i en ren, ryddelig garage. Så simpelt er det.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="section-inner">
+    <div class="section-label">Hvorfor Klar</div>
+    <h2 class="section-title">Vi tager os af <br>detaljerne</h2>
+    <p class="section-sub">Punktligt, ordentligt og professionelt. Vi møder op til tiden, kommunikerer klart og efterlader dig med en ren garage.</p>
+
+    <div class="why-grid">
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-item-icon"><i data-lucide="zap" style="width:20px;height:20px;"></i></div>
+          <div class="why-item-text">
+            <h4>Hurtig Gennemførelse</h4>
+            <p>De fleste jobs er færdige samme dag eller næste dag. Du venter ikke på en garage, du ikke kan bruge.</p>
+          </div>
+        </div>
+       
+        <div class="why-item">
+          <div class="why-item-icon"><i data-lucide="banknote" style="width:20px;height:20px;"></i></div>
+          <div class="why-item-text">
+            <h4>Fast og Ærlig Pris</h4>
+            <p>Den pris, vi oplyser, er den pris, du betaler. Ingen uventede tillæg, når bilen er lastet.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-item-icon"><i data-lucide="users" style="width:20px;height:20px;"></i></div>
+          <div class="why-item-text">
+            <h4>Lokalt Hold fra Aarhus</h4>
+            <p>Vi er dine naboer — ikke en franchise. Vi passer på vores ry i lokalsamfundet.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-visual">
+        <div class="why-stat-box">
+          <div class="lbl">Jobs udført</div>
+          <div class="num">0</div>
+        </div>
+        <div class="why-stat-box">
+          <div class="lbl">År i drift</div>
+          <div class="num">0</div>
+        </div>
+        <div class="why-stat-box">
+          <div class="lbl">Donerede genstande</div>
+          <div class="num">0</div>
+        </div>
+        <div class="why-stat-box">
+          <div class="lbl">Tilbagevendende kunder</div>
+          <div class="num">0</div>
+        </div>
+        <div class="why-stat-box accent-box">
+          <i data-lucide="star" style="width:32px;height:32px;"></i>
+          <div>
+            <div class="num">0.0</div>
+            <div class="lbl">Ingen anmeldelser endnu</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="galleri">
+  <div class="section-inner">
+    <div class="section-label">Før & Efter</div>
+    <h2 class="section-title">Se resultatet<br />med egne øjne</h2>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=1200&q=80" alt="Rodet garage før oprydning" />
+        <div class="gallery-label">Før — Garageoprydning, Aarhus N</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=80" alt="Ren og ryddelig garage efter oprydning" />
+        <div class="gallery-label">Efter — Samme garage, samme dag</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80" alt="Organiseret garage" />
+        <div class="gallery-label">Organisering & Reoler, Risskov</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1200&q=80" alt="Boligrydning" />
+        <div class="gallery-label">Boligrydning, Aarhus V</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=80" alt="Affaldssortering og genbrug" />
+        <div class="gallery-label">Sortering til Genbrug</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80" alt="Rent og ryddeligt efter oprydning" />
+        <div class="gallery-label">Fuld oprydning, Brabrand</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="cta-inner">
+    <div>
+      <h2>Klar til endelig at<br>bruge din Garage?</h2>
+      <p>Få et gratis tilbud uden forpligtelse. Vi svarer inden for 24 timer.</p>
+    </div>
+    <a class="btn-white" href="#kontakt">
+      <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
+      Få mit gratis tilbud
+    </a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="kontakt">
+  <div class="section-inner">
+    <div class="section-label">Kontakt</div>
+    <h2 class="section-title">Få dit gratis tilbud</h2>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p style="color:var(--gray2); font-size:0.95rem; line-height:1.7; margin-bottom:1rem;">
+          Fortæl os lidt om din garage, og vi vender tilbage med et tilbud inden for 24 timer.
+        </p>
+
+        <div class="contact-row">
+          <div class="contact-row-icon"><i data-lucide="phone" style="width:20px;height:20px;"></i></div>
+          <div>
+            <h4>Ring eller SMS</h4>
+            <p>+45 42 90 74 06</p>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-row-icon"><i data-lucide="mail" style="width:20px;height:20px;"></i></div>
+          <div>
+            <h4>E-mail</h4>
+            <p>hej@klargarage.dk</p>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-row-icon"><i data-lucide="map-pin" style="width:20px;height:20px;"></i></div>
+          <div>
+            <h4>Serviceområde</h4>
+            <p>Aarhus & Omegn</p>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <div class="contact-row-icon"><i data-lucide="clock" style="width:20px;height:20px;"></i></div>
+          <div>
+            <h4>Åbningstider</h4>
+            <p>Hver dag, 07:00–19:00</p>
+          </div>
+        </div>
+      </div>
+
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">Fornavn</label>
+            <input id="firstName" name="firstName" type="text" placeholder=" " autocomplete="given-name" required />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Efternavn</label>
+            <input id="lastName" name="lastName" type="text" placeholder=" " autocomplete="family-name" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Telefon</label>
+            <input id="phone" name="phone" type="tel" placeholder=" " autocomplete="tel" required />
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" placeholder=" " autocomplete="email" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="serviceType">Ønsket Ydelse</label>
+          <select id="serviceType" name="serviceType" required>
+            <option>Fuld Garageoprydning</option>
+            <option>Skrald- og Affaldshåndtering</option>
+            <option>Sortering og Organisering</option>
+            <option>Boligrydning & Dødsbo</option>
+            <option>Samme dag / Akut</option>
+            <option>Andet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="jobDescription">Beskriv dit job</label>
+          <textarea id="jobDescription" name="jobDescription" placeholder="Omtrentlig størrelse på garagen, typer af genstande, særlige bemærkninger..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">
+          <i data-lucide="send" style="width:16px;height:16px;"></i>
+          Jeg er Klar til at få et tilbud!
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><span>K</span>lar</div>
+        <p>Professionel garageoprydning i Aarhus og omegn. Hurtigt, ærligt og miljøvenligt. Vi rydder — du beholder pladsen.</p>
+      </div>
+
+      <div class="footer-col">
+        <h5>Ydelser</h5>
+        <ul>
+          <li><a href="#services">Fuld Garageoprydning</a></li>
+          <li><a href="#services">Affaldshåndtering</a></li>
+          <li><a href="#services">Boligrydning</a></li>
+          <li><a href="#services">Samme-dags Service</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Virksomhed</h5>
+        <ul>
+          <li><a href="#why">Om Os</a></li>
+          <li><a href="#how">Sådan Virker Det</a></li>
+          <li><a href="#udtalelser">Anmeldelser</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Kontakt</h5>
+        <ul>
+          <li><a href="tel:+4542907406">+45 42 90 74 06</a></li>
+          <li><a href="mailto:hej@klargarage.dk">hej@klargarage.dk</a></li>
+          <li><a href="#">Aarhus & Omegn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Klar Garage. Alle rettigheder forbeholdes.</p>
+      <div class="footer-socials">
+        <a class="social-btn" href="#"><i data-lucide="facebook" style="width:15px;height:15px;"></i></a>
+        <a class="social-btn" href="#"><i data-lucide="instagram" style="width:15px;height:15px;"></i></a>
+        <a class="social-btn" href="#"><i data-lucide="youtube" style="width:15px;height:15px;"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    lucide.createIcons();
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    const formData = new FormData(e.target);
+    const firstName = (formData.get('firstName') || '').toString().trim();
+    const lastName = (formData.get('lastName') || '').toString().trim();
+    const phone = (formData.get('phone') || '').toString().trim();
+    const email = (formData.get('email') || '').toString().trim();
+    const serviceType = (formData.get('serviceType') || '').toString().trim();
+    const jobDescription = (formData.get('jobDescription') || '').toString().trim();
+
+    const subject = encodeURIComponent('Ny tilbudsforesporgsel fra hjemmeside');
+    const body = encodeURIComponent(
+      `Navn: ${firstName} ${lastName}\nTelefon: ${phone}\nE-mail: ${email}\nYdelse: ${serviceType}\n\nBeskrivelse:\n${jobDescription}`
+    );
+
+    window.location.href = `mailto:hej@klargarageoprydning.dk?subject=${subject}&body=${body}`;
+
+    btn.innerHTML = '<i data-lucide="check-circle" style="width:16px;height:16px;"></i> Forespørgsel Sendt!';
+    btn.style.background = '#1a9e57';
+    btn.disabled = true;
+    lucide.createIcons();
+    setTimeout(() => {
+      btn.innerHTML = '<i data-lucide="send" style="width:16px;height:16px;"></i> Send Min Tilbudsforespørgsel';
+      btn.style.background = '';
+      btn.disabled = false;
+      lucide.createIcons();
+    }, 3000);
+  }
+</script>
+
+</body>
+</html>
